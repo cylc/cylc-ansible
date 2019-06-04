@@ -1,0 +1,27 @@
+---
+
+- name: Install packages
+  package:
+    name:
+    - atd
+    - git
+  notify: Restart atd
+
+- name: Create user
+  user:
+    name: cylc
+    groups: wheel
+
+- name: Allow password-less sudo
+  copy:
+    content: "cylc ALL=(ALL) NOPASSWD: ALL"
+    dest: /etc/sudoers.d/cylc
+    mode: 0440
+  become: yes
+
+- name: Download cylc
+  git:
+    repo: https://github.com/cylc/cylc.git
+    dest: /opt/cylc
+    version: cylc-{{ cylc_version }}
+  become: yes
