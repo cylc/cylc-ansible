@@ -7,6 +7,13 @@
     - git
   notify: Restart atd
 
+- name: Install Python packages
+  pip:
+    name:
+    - pyOpenSSL==19.0.0
+    - cryptography==2.7
+  become: yes
+
 - name: Create cylc user
   user:
     name: cylc

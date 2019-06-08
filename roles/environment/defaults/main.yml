@@ -1,6 +1,0 @@
----
-
-# The user the environment's for
-environment_user_name: setme
-# The environment name
-environment_name: python3

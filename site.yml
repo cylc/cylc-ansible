@@ -4,7 +4,3 @@
   tasks:
   - include_role:
       name: cylc
-  - include_role:
-      name: environment
-    vars:
-      environment_user_name: cylc
