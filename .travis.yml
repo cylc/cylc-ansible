@@ -1,9 +1,27 @@
-dist: xenial
+---
+
 language: python
-python:
-- 3.7
+services: docker
+
+env:
+  global:
+  - ROLE_NAME: cylc-core
+  matrix:
+  - MOLECULE_DISTRO: centos7
+  - MOLECULE_DISTRO: ubuntu1804
+  - MOLECULE_DISTRO: debian9
+
+# We use the actual Ansible Galaxy role name for the project directory,
+# not the git repo name. So rename the checkout...
+
+before_script:
+- cd ../
+- mv ansible-role-$ROLE_NAME alanbchristie.$ROLE_NAME
+- cd alanbchristie.$ROLE_NAME
+
 install:
 - pip install -r requirements.txt
 - pip install -r build-requirements.txt
+
 script:
-- ansible-lint site.yml
+- molecule test

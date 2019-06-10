@@ -1,6 +1,0 @@
----
-
-- hosts: cylcserver
-  tasks:
-  - include_role:
-      name: cylc

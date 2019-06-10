@@ -1,34 +1,24 @@
-[![Build Status](https://travis-ci.org/alanbchristie/cylc-ansible.svg?branch=master)](https://travis-ci.org/alanbchristie/cylc-ansible)
+# The cylc-core Ansible Role
+[Ansible] Role for the installation of the [Cylc] workflow engine.
 
-# cylc-ansible
-[Ansible] playbook for the installation of the [Cylc] workflow engine.
+The **cylc-coer** role installs cylc (into the `/opt` directory) and adjusts
+the system-wide `PATH` environment variable so all users have access to it
+by placing a file in `/etc/profile.d`.
 
-There is one role: -
+## Role variables
+Available variables and default values (see defaults/main.yml): -
 
--   **cylc**
+    cylc_version: 7.8.2
 
-The **cylc** role installs cylc (into the `/opt` directory) and adjusts the
-system-wide `PATH` environment variable so all users have access to it
-by placing a file in `/etc/profile.d`. A `cylc` user is added and given
-password-less sudo privilege.
+## Example playbook
 
-## Running the playbook
-On your _control machine_ you will need [Python] (ideally a Python 3 virtual
-environment) and the project requirements: -
-
-    $ conda activate cylc-ansible
-    $ pip install -r requirements.txt
-
-You will also need to provide an Ansible inventory file to define
-the `cylcserver` host before installing with something like: -
-
-    $ ansible-playbook site.yml -i <inventory file>
-
->   `inventory.yml` is safe to use. It is prevented from being committed
-    as it's in the project's `.gitigore` file.
+    ---
+    - hosts: cylc-server
+      tasks:
+      - include_role:
+          name: alanbchristie.cylc-core
 
 ---
 
 [Ansible]: https://pypi.org/project/ansible/
 [Cylc]: https://cylc.github.io
-[Python]: https://www.python.org

@@ -1,0 +1,28 @@
+---
+
+galaxy_info:
+
+  author: Alan B. Christie
+  description: The Cylc workflow engine
+  license: GPLv3
+  min_ansible_version: 2.7
+
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  - name: Debian
+    versions:
+    - 9
+  - name: Ubuntu
+    versions:
+    - 1804
+
+  galaxy_tags:
+  - cylc
+  - workflow
+  - development
+  - automation
+  - graph
+
+  dependencies: []
