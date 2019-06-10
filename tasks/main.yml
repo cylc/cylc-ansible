@@ -36,8 +36,10 @@
   become: yes
 
 - name: Get cylc version
-  command: cylc version
+  command: "{{ cylc_bin_dir }}/cylc version"
   register: cylc_v
+  vars:
+    cylc_bin_dir: /opt/cylc/bin
   changed_when: false
 
 - name: Assert cylc version
