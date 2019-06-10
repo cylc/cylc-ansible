@@ -1,7 +1,7 @@
 # The cylc-core Ansible Role
 [Ansible] Role for the installation of the [Cylc] workflow engine.
 
-The **cylc-coer** role installs cylc (into the `/opt` directory) and adjusts
+The **cylc-core** role installs cylc (into the `/opt` directory) and adjusts
 the system-wide `PATH` environment variable so all users have access to it
 by placing a file in `/etc/profile.d`.
 
