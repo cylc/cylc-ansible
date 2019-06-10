@@ -11,6 +11,9 @@ env:
   - MOLECULE_DISTRO: ubuntu1804
   - MOLECULE_DISTRO: debian9
 
+install:
+- pip install -r requirements.txt
+
 # We use the actual Ansible Galaxy role name for the project directory,
 # not the git repo name. So rename the checkout...
 
@@ -18,10 +21,6 @@ before_script:
 - cd ../
 - mv ansible-role-$ROLE_NAME alanbchristie.$ROLE_NAME
 - cd alanbchristie.$ROLE_NAME
-
-install:
-- pip install -r requirements.txt
-- pip install -r build-requirements.txt
 
 script:
 - molecule test
