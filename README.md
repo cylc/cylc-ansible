@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/alanbchristie/ansible-role-cylc-core.svg?branch=master)](https://travis-ci.org/alanbchristie/ansible-role-cylc-core)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 # The cylc-core Ansible Role
 [Ansible] Role for the installation of the [Cylc] workflow engine.
