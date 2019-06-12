@@ -7,9 +7,9 @@ An [Ansible] Role for the installation of the [Cylc] workflow engine.
 
 The **cylc-core** role installs cylc (into the `/opt` directory) and adjusts
 the system-wide `PATH` environment variable so all users have access to it
-by placing a file in `/etc/profile.d`. It's Cylc for a _headless_ server that's
-installed, i.e. one without graphical/display capabilities, one to be be
-configured and used from the command-line.
+by placing a file in `/etc/profile.d`. The term _core_  is used as this
+Role is for a _headless_ server, i.e. one without graphical/display
+capabilities - a Cylc engine to be configured and used from the command-line.
 
 ## Role variables
 Available variables and default values (see [defaults/main.yml](defaults/main.yml)): -
