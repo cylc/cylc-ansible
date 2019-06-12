@@ -47,6 +47,7 @@
     src: /opt/{{ cylc_version }}.zip
     dest: /opt
     remote_src: yes
+    creates: "{{ cylc_home }}"
   become: yes
 
 - name: Check unpack directory
