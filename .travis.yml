@@ -7,7 +7,6 @@ services: docker
 python:
 - 3.7
 
-install
 env:
   matrix:
   - MOLECULE_DISTRO: centos7
