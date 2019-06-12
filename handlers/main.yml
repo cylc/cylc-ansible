@@ -1,6 +1,6 @@
 ---
 
-- name: Restart atd
+- name: Start atd
   service:
     name: atd
     enabled: yes

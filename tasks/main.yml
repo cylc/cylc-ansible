@@ -18,7 +18,7 @@
     - make
     - python
     - unzip
-  notify: Restart atd
+  notify: Start atd
 
 - name: Install Python packages
   pip:
@@ -27,6 +27,7 @@
     - empy==3.3.4
     - pyOpenSSL==19.0.0
     - requests==2.22.0
+    - Sphinx==1.7.9
     - urllib3==1.25.3
   become: yes
 
