@@ -14,8 +14,8 @@ env:
 install:
 - pip install -r requirements.txt
 
-# We use the actual Ansible Galaxy role name for the project directory,
-# not the git repo name. So rename the checkout...
+# We use the anticipated Ansible Galaxy role name for the project directory,
+# not the git repo name. So, before doing anything, move the checkout...
 
 before_script:
 - cd ../

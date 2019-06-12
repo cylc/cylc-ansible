@@ -3,4 +3,5 @@
 - name: Restart atd
   service:
     name: atd
-    state: restarted
+    enabled: yes
+    state: started

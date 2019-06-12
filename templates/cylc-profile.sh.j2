@@ -1,2 +1,4 @@
-# Add Cylc bin directory to the path
-PATH="$PATH:{{ cylc_bin_dir }}"
+# Add anticipated Cylc environment variables to everyone's account
+CYLC_HOME_ROOT=/opt/
+CYLC_HOME={{ cylc_home }}/
+CYLC_VERSION={{ installed_version }}
