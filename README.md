@@ -15,6 +15,8 @@ be configured and used from the command-line.
 Available variables and default values
 (see [defaults/main.yml](defaults/main.yml)): -
 
+    # The Cylc version to install, where: -
+    # 7.0.0 <= cylc_version < 8.0.0
     cylc_version: 7.8.3
 
 ## Example playbook
