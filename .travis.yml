@@ -4,8 +4,6 @@ language: python
 services: docker
 
 env:
-  global:
-  - ROLE_NAME: cylc-core
   matrix:
   - MOLECULE_DISTRO: centos7
   - MOLECULE_DISTRO: ubuntu1804
@@ -19,8 +17,8 @@ install:
 
 before_script:
 - cd ../
-- mv ansible-role-$ROLE_NAME alanbchristie.$ROLE_NAME
-- cd alanbchristie.$ROLE_NAME
+- mv cylc_core alanbchristie.cylc_core
+- cd alanbchristie.cylc_core
 
 script:
 - molecule test
