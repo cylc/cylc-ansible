@@ -5,7 +5,10 @@
 
 An [Ansible] Role for the installation of the [Cylc] v7.x workflow engine.
 
-The **cylc** role installs Cylc (into the `/opt` directory).
+Cylc is a workflow engine for cycling systems originally developed for
+operational environmental forecasting at NIWA by Dr Hilary Oliver.
+It is now an Open Source collaboration involving NIWA, Met Office, and others.
+It is available under the GPL v3 license.
 
 ## Role variables
 Available variables and default values
