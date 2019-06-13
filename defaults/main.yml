@@ -1,3 +1,10 @@
 ---
 
+# The Cylc version to install, where: -
+# 7.0.0 <= cylc_version < 8.0.0
 cylc_version: 7.8.3
+
+# Whether to install the optional GUI components
+# like PyGTK, graphviz etc. Setting this variable
+# only makes sense for a host that has a DISPLAY.
+cylc_visualisation: no

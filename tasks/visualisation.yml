@@ -1,0 +1,19 @@
+---
+
+# Installs the optional visualisation packages for Cylc
+
+- name: Install visualisation packages
+  package:
+    name:
+    - gcc
+    - graphviz
+    - graphviz-devel
+    - pygtk2
+    - python-devel
+
+- name: Install Python visualisation packages
+  pip:
+    name:
+    - pygraphviz==1.2
+    - Sphinx==1.7.9
+  become: yes

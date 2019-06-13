@@ -2,7 +2,7 @@
 
 # Entry sanity check...
 
-- name: Inital checks
+- name: Initial checks
   assert:
     that:
     - cylc_version|length > 0

@@ -1,5 +1,10 @@
 ---
 
+# Install visualisation components?
+
+- import_tasks: visualisation.yml
+  when: cylc_visualisation|bool
+
 # Install dependent packages and modules...
 
 - name: Install packages
@@ -18,7 +23,6 @@
     - empy==3.3.4
     - pyOpenSSL==19.0.0
     - requests==2.22.0
-    - Sphinx==1.7.9
     - urllib3==1.25.3
   become: yes
 
@@ -109,7 +113,7 @@
     that: cylc_v.stdout == '{{ made_version.stdout }}'
 
 - name: Run cylc check-software
-  command: cylc check-software
+  shell: DISPLAY=:0 cylc check-software  # noqa 305
   register: check
   changed_when: false
 
