@@ -29,6 +29,8 @@ Available variables and default values
       tasks:
       - include_role:
           name: alanbchristie.cylc
+        vars:
+          cylc_version: 7.8.2
 
 ---
 

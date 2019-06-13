@@ -11,113 +11,18 @@
 
 # Install dependent packages and modules...
 
-- name: Install packages
-  package:
-    name:
-    - at
-    - make
-    - python
-    - unzip
-  notify: Start atd
-
-- name: Install Python packages
-  pip:
-    name:
-    - cryptography==2.7
-    - empy==3.3.4
-    - pyOpenSSL==19.0.0
-    - requests==2.22.0
-    - Sphinx==1.7.9
-    - urllib3==1.25.3
-  become: yes
-
-# Get and unpack the release...
-
 - name: Set anticipated home
   set_fact:
     cylc_home: /opt/cylc-flow-{{ cylc_version }}
 
-- name: Get Cylc release ({{ cylc_version }})
-  get_url:
-    url: https://github.com/cylc/cylc-flow/archive/{{ cylc_version }}.zip
-    dest: /opt/{{ cylc_version }}.zip
-  become: yes
-
-- name: Unpack
-  unarchive:
-    src: /opt/{{ cylc_version }}.zip
-    dest: /opt
-    remote_src: yes
-    creates: "{{ cylc_home }}"
-  become: yes
-
-- name: Check unpack directory
+- name: Check anticipated home
   stat:
     path: "{{ cylc_home }}"
-  register: home_stat
+  register: ch
 
-- name: Assert unpack directory
-  assert:
-    that: home_stat.stat.isdir
+# Install only if it appears the installation directory
+# for the named release does not exist...
 
-# Build and install...
-
-- name: Build
-  shell: PATH={{ cylc_home }}/bin:$PATH make  # noqa 304
-  register: make_out
-  changed_when: "'build succeeded' in make_out.stdout"
-  args:
-    chdir: "{{ cylc_home }}"
-    creates: "{{ cylc_home }}/VERSION"
-  become: yes
-
-- name: Collect version
-  command: cat {{ cylc_home }}/VERSION
-  changed_when: false
-  register: made_version
-
-- name: Link
-  file:
-    src: "{{ cylc_home }}"
-    dest: /opt/cylc
-    state: link
-  become: yes
-
-- name: Copy cylc wrapper (to /usr/local/bin)
-  copy:
-    src: "{{ cylc_home }}/usr/bin/cylc"
-    dest: /usr/local/bin/cylc
-    remote_src: yes
-    mode: 0755
-  become: yes
-
-- name: Add cylc variables to system-wide profile
-  template:
-    src: cylc-profile.sh.j2
-    dest: /etc/profile.d/cylc-profile.sh
-    owner: root
-    group: root
-    mode: 0644
-  vars:
-    installed_version: "{{ made_version.stdout }}"
-  become: yes
-
-# Sanity check the installation...
-
-- name: Test cylc version
-  command: cylc version
-  register: cylc_v
-  changed_when: false
-
-- name: Assert cylc version
-  assert:
-    that: cylc_v.stdout == '{{ made_version.stdout }}'
-
-- name: Run cylc check-software
-  command: cylc check-software
-  register: check
-  changed_when: false
-
-- name: Display check result
-  debug:
-    msg: "{{ check.stdout_lines }}"
+- name: Install Cylc
+  import_tasks: install.yml
+  when: not ch.stat.exists
