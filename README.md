@@ -10,6 +10,10 @@ operational environmental forecasting at NIWA by Dr Hilary Oliver.
 It is now an Open Source collaboration involving NIWA, Met Office, and others.
 It is available under the GPL v3 license.
 
+>   At the moment only the _core_ components are installed by the Role, making
+    it suitable for a _headless_ distribution where Cylc's configured and run
+    from the command-line.
+
 ## Role variables
 Available variables and default values
 (see [defaults/main.yml](defaults/main.yml)): -
