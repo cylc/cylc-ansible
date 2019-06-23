@@ -112,8 +112,12 @@
   assert:
     that: cylc_v.stdout == '{{ made_version.stdout }}'
 
+# Run 'check-software'
+# with an optional 'display' variable.
+# Typically this is empty or 'DISPLAY=:99'...
+
 - name: Run cylc check-software
-  shell: DISPLAY=:0 cylc check-software  # noqa 305
+  shell: "{{ display }} cylc check-software"  # noqa 305
   register: check
   changed_when: false
 

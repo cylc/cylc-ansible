@@ -1,0 +1,27 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+
+  # To support Cylc's GUI (even to run the 'cylc check-software' command)
+  # on our headless instance we need a windowing system. So we install
+  # and run the "X virtual framebuffer" and define a system-wide (dummy)
+  # DISPLAY environment variable, which appears (to the app) to provide X
+  # without the need for a display.
+
+  - name: Install X virtual framebuffer
+    package:
+      name: xorg-x11-server-Xvfb
+    become: yes
+  - name: Run virtual framebuffer X server (background)
+    command: Xvfb :99
+    async: 300
+    poll: 0
+    changed_when: false
+
+  - name: Deploy Cylc
+    include_role:
+      name: cylc
+    vars:
+      cylc_visualisation: yes
+      display: DISPLAY=:99

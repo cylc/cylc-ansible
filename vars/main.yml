@@ -1,0 +1,7 @@
+---
+
+# The DISPLAY variable (normally undefined) but can be defined
+# when running GUI/Gtk commands during the installation
+# (Usually used for testing via Xvfb). It's added as a command-prefix
+# with something like: "{{ display }} cylc check-version"
+display: ''
