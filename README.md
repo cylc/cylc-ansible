@@ -10,10 +10,6 @@ operational environmental forecasting at NIWA by Dr Hilary Oliver.
 It is now an Open Source collaboration involving NIWA, Met Office, and others.
 It is available under the GPL v3 license.
 
->   At the moment only the _core_ components are installed by the Role, making
-    it suitable for a _headless_ distribution where Cylc's configured and run
-    from the command-line.
-
 ## Role variables
 Available variables and default values
 (see [defaults/main.yml](defaults/main.yml)): -
@@ -21,6 +17,11 @@ Available variables and default values
     # The Cylc version to install, where: -
     # 7.0.0 <= cylc_version < 8.0.0
     cylc_version: 7.8.3
+
+    # Whether to install the optional GUI components
+    # like PyGTK, graphviz etc. Setting this variable
+    # only makes sense for a host that has a DISPLAY.
+    cylc_visualisation: no
 
 ## Example playbook
 
@@ -31,6 +32,7 @@ Available variables and default values
           name: alanbchristie.cylc
         vars:
           cylc_version: 7.8.2
+          cylc_visualisation: yes
 
 ---
 

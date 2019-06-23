@@ -9,9 +9,14 @@ python:
 
 env:
   matrix:
+  # Core platforms
   - MOLECULE_DISTRO: centos7
   - MOLECULE_DISTRO: ubuntu1804
   - MOLECULE_DISTRO: debian9
+
+  # Test the visualisation installation
+  - MOLECULE_DISTRO: centos7
+    MOLECULE_PLAYBOOK: playbook-visualisation.yml
 
 install:
 - pip install -r requirements.txt
