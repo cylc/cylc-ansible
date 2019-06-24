@@ -1,8 +1,4 @@
 # The Cylc Ansible Role
-
-[![Build Status](https://travis-ci.org/alanbchristie/cylc.svg?branch=master)](https://travis-ci.org/alanbchristie/cylc)
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-
 An [Ansible] Role for the installation of the [Cylc] v7.x workflow engine.
 
 Cylc is a workflow engine for cycling systems originally developed for
