@@ -25,7 +25,7 @@ Available variables and default values
     - hosts: cylc
       tasks:
       - include_role:
-          name: alanbchristie.cylc
+          name: cylc.cylc
         vars:
           cylc_version: 7.8.2
           cylc_visualisation: yes

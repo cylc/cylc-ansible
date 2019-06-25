@@ -2,6 +2,7 @@
 
 galaxy_info:
 
+  role_name: cylc
   author: Alan B. Christie
   description: The Cylc workflow engine
   license: GPLv3

@@ -26,8 +26,8 @@ install:
 
 before_script:
 - cd ../
-- mv cylc alanbchristie.cylc
-- cd alanbchristie.cylc
+- mv cylc-ansible cylc.cylc
+- cd cylc.cylc
 
 script:
 - molecule test
