@@ -5,10 +5,6 @@
 
 An [Ansible] Role for the installation of the [Cylc] v7.x workflow engine.
 
->   This repository is now **Read Only** (in `ARCHIVE` mode).
-    Development has been transferred to Cylc's [cylc-ansible]
-    repository. Go there for the the latest code for this role.
-    
 Cylc is a workflow engine for cycling systems originally developed for
 operational environmental forecasting at NIWA by Dr Hilary Oliver.
 It is now an Open Source collaboration involving NIWA, Met Office, and others.
@@ -42,4 +38,3 @@ Available variables and default values
 
 [Ansible]: https://pypi.org/project/ansible/
 [Cylc]: https://cylc.github.io
-[cylc-ansible]: https://github.com/cylc/cylc-ansible
